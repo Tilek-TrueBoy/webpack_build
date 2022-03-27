@@ -11,7 +11,7 @@ module.exports = {
   mode: mode,
   context: path.resolve(__dirname, "src"),
   entry: {
-    app: ['babel-polyfill', "./js/app.js"],
+    app: ["regenerator-runtime/runtime.js","./js/app.js"],
   },
   output: {
     filename: "[name].[contenthash].js",
