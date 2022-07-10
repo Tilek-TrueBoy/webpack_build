@@ -11,7 +11,7 @@ module.exports = {
   mode: mode,
   context: path.resolve(__dirname, "src"),
   entry: {
-    app: ["regenerator-runtime/runtime.js","./js/app.js"],
+    app: ["regenerator-runtime/runtime.js","./js/app.ts"],
   },
   output: {
     filename: "[name].[contenthash].js",
@@ -78,20 +78,18 @@ module.exports = {
         },
       },
       {
-        test: /\.pug$/,
-        loader: "pug-loader",
-        exclude: /(node_modules|bower_components)/,
-      },
-      {
-        test: /\.js$/,
+        test: /\.ts$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env"],
+            presets: ["@babel/preset-env",'@babel/preset-typescript'],
           },
         },
       },
     ],
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"]
   },
 };
